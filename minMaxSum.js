@@ -7,22 +7,26 @@ function minMaxSum() {
   let biggestValue = Math.max(...arr);
   let minimunValue = Math.min(...arr);
 
+  if (biggestValue === minimunValue) {
+    arr.pop();
+
+    arr.map((item) => {
+      minSum += item;
+      maxSum += item;
+    });
+  }
+
   arr.map((item) => {
-    if (item !== biggestValue && biggestValue !== minimunValue) {
+    if (item !== biggestValue) {
       minSum += item;
     }
 
-    if (item !== minimunValue && biggestValue !== minimunValue) {
+    if (item !== minimunValue) {
       maxSum += item;
-    }
-
-    if (biggestValue === minimunValue) {
-      maxSum = maxSum + item - item;
-      minSum = item;
     }
   });
 
-  console.log(`${maxSum}`);
+  console.log(`${minSum} ${maxSum}`);
 }
 
 minMaxSum();
