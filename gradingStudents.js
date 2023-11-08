@@ -6,6 +6,7 @@ function gradingStudents(grades = []) {
   grades.forEach((item, index) => {
     if (item < minimunFallingGrade) {
       newGrades.push(item);
+      return;
     }
 
     let nextMultipleBy5 = Math.ceil(item / 5) * 5;
@@ -17,14 +18,7 @@ function gradingStudents(grades = []) {
       newGrades.push(item);
     }
   });
-  console.log(newGrades);
+  return newGrades;
 }
 
 gradingStudents(grades);
-
-/**
- 1- percorrer o array de notas;
- 2- verificar qual o proximo multiplo de 5 a partir da nota do aluno;
-
-
- */
